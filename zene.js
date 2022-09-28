@@ -25,11 +25,16 @@ class Szam{
     }
 }
 let lista = [];
+let össz = 0;
 
 function gombKatt(){
     let cim = document.getElementById("cim").value;
-    let hossz = document.getElementById("hossz").value;
+    let hossz = parseInt(document.getElementById("hossz").value);
     lista.push(new Szam(cim, hossz));
+    for(let i = 0; i < lista.length; i++){
+        össz += lista[i].hossz;
+    }
+    document.getElementById('kiirat').innerHTML = össz;
 }
 
 document.getElementById('gomb').addEventListener('click',gombKatt)
