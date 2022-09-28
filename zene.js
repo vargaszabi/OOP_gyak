@@ -2,7 +2,7 @@ class Szam{
     #cim;
     #hossz;
 
-    constructor(nev,hossz){
+    constructor(cim,hossz){
         this.cim = cim;
         this.hossz = hossz;
     }
@@ -17,6 +17,21 @@ class Szam{
         return this.#hossz;
     }
     set hossz(hossz){
-        this.#hossz = hossz;;
+        if(hossz >=0){
+            this.#hossz = hossz;;
+        } else{
+            throw new Error("A másodperc nem lehet negatív")
+        }
     }
 }
+let lista = [];
+
+function gombKatt(){
+    let cim = document.getElementById("cim").value;
+    let hossz = document.getElementById("hossz").value;
+    lista.push(new Szam(cim, hossz));
+}
+
+document.getElementById('gomb').addEventListener('click',gombKatt)
+
+console.log(lista);
